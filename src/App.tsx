@@ -16,6 +16,8 @@ const App = () => {
 
       setTimeout(() => {
         flash.style.display = 'none';
+        audio.pause();
+        audio.currentTime = 0;
       }, 500);
     });
   }, []);
@@ -25,7 +27,17 @@ const App = () => {
       <div id='flash'></div>
       <input type='text' id='textInput' placeholder='Type something...' />
       <button id='playButton'>Play Audio</button>
-      <audio id='audioPlayer' src='your-audio-file.mp3'></audio>
+      <audio id='audioPlayer' src='race.mp3'></audio>
+      <div>
+        Sound Effect by{' '}
+        <a href='https://pixabay.com/users/transcendedlifting-30596364/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125125'>
+          transcendedlifting
+        </a>{' '}
+        from{' '}
+        <a href='https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=125125'>
+          Pixabay
+        </a>
+      </div>
     </>
   );
 };
