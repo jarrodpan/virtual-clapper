@@ -50,3 +50,7 @@
   background-color: red;
   left: 0;
 }
+
+#textInput {
+  font-size: 5em;
+}

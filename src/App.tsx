@@ -25,8 +25,8 @@ const App = () => {
   return (
     <>
       <div id='flash'></div>
-      <input type='text' id='textInput' placeholder='Type something...' />
-      <button id='playButton'>Play Audio</button>
+      <input type='text' id='textInput' placeholder='scene info' />
+      <button id='playButton'>Clap</button>
       <audio id='audioPlayer' src='race.mp3'></audio>
       <div>
         Sound Effect by{' '}
