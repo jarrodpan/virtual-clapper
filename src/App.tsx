@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect } from 'react';
+import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0)
+const getById = <T extends HTMLElement>(id: string) =>
+  document.getElementById(id)! as T;
+
+const App = () => {
+  useEffect(() => {
+    const button = document.getElementById('playButton')!;
+    const audio = document.getElementById('audioPlayer')! as HTMLAudioElement;
+    const flash = getById<HTMLDivElement>('flash');
+
+    button.addEventListener('click', () => {
+      audio.play();
+      flash.style.display = 'block';
+
+      setTimeout(() => {
+        flash.style.display = 'none';
+      }, 500);
+    });
+  }, []);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <div id='flash'></div>
+      <input type='text' id='textInput' placeholder='Type something...' />
+      <button id='playButton'>Play Audio</button>
+      <audio id='audioPlayer' src='your-audio-file.mp3'></audio>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
